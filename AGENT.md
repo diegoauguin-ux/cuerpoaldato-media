@@ -21,4 +21,10 @@ python3 render5.py b3/epXX.json b3/epXX.wav out.mp4 epXX.beats.json
 Tipos de beat: hook{prop,mood,label}, stat{big,label,prop,size}, bars{label,bars}, stamp{claim,verdict,vcol}, cards, cta. Props: stomach, glass, bulb, cell, drop, shield, virus, brain, phone, clock, moon.
 
 ## Temas ya publicados
-ep05 estómago/ácido, ep06 agua en ayunas, ep07 luz del cuerpo, ep08 8 h sentado, ep09 celular en cama, ep10 café y adenosina.
+ep05 estómago/ácido, ep06 agua en ayunas, ep07 luz del cuerpo, ep08 8 h sentado, ep09 celular en cama, ep10 café y adenosina, ep11 sueño tras almorzar, ep12 bostezo, ep13 pie dormido, ep14 cebolla, ep15 dormir 5 h, ep16 tronar dedos, ep17 aguantar pipí.
+
+## Notas operativas (actualizado 2026-11-10)
+- Voz: el workflow tts.yml del repo PÚBLICO corre al subir `job_epXX.txt` (mismo texto que `epXX.txt`) y deja `voice/epXX/*.mp3`; el del repo privado está obsoleto. edge-tts NO funciona desde el sandbox (DNS bloqueado).
+- Render actual: `render6.py` (mismos argumentos que render5). 1 beat por línea del guion. Subida a GitHub: file_upload solo acepta archivos dentro del directorio de trabajo; se pueden subir varios por llamada.
+- Buffer: límite 10 programadas por canal. Quedaban 7 por canal el 10-nov; se programaron 3 más (ep15-17).
+- Cola de temas para la próxima corrida (aún sin guion): hipo, por qué se te erizan los pelos, qué pasa si no desayunas, mito de crujir el cuello, por qué sale hambre de noche, qué pasa si tomas poca agua, por qué da calambre muscular, por qué sube la fiebre, mito de los 8 vasos, por qué te duele la cabeza al tener hambre, por qué se te cae el pelo.
