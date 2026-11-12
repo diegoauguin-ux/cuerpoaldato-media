@@ -1,3 +1,2 @@
 batch 0 0 x
-lago_01 60 51 lake 13154515
-fuego_01 60 52 fire 11751758
+fuego_02 60 61 fire2 11751758
