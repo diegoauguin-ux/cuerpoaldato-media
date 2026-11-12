@@ -1,3 +1,4 @@
 batch 0 0 x
-pomo_01 60 22 pomo
-marron_01 60 23 brown
+valpo_01 60 31 srain 36835768
+estudio_02 60 32 spomo 39425782
+chimenea_01 60 33 sbrown 11751758
