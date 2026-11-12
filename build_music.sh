@@ -10,6 +10,7 @@ stock(){ # $1=pexels id  $2=tipo (srain|spomo|sfire)
   case $2 in
     srain) G="eq=brightness=-0.17:saturation=0.5:gamma=0.85,colorbalance=rs=-0.1:bs=0.14:bm=0.1,curves=all='0/0 0.5/0.38 1/0.85',gblur=sigma=0.6,drawbox=x=0:y=0:w=iw:h=ih:color=0x8fa0b5@0.10:t=fill,vignette=PI/4"; OV=1;;
     spomo) G="eq=brightness=-0.04:saturation=0.9"; OV=0;;
+    slake) G="eq=brightness=-0.03:saturation=0.85,unsharp=5:5:0.4"; OV=0;;
     sfire) G="eq=brightness=-0.02:saturation=1.0"; OV=0;;
   esac
   ffmpeg -nostdin -y -loglevel error -t 10 -i /tmp/src.mp4 -an -vf "scale=1280:720:flags=lanczos:force_original_aspect_ratio=increase,crop=1280:720,unsharp=5:5:0.6,fps=24,$G" -c:v libx264 -preset veryfast -crf 18 /tmp/fwd.mp4
@@ -28,6 +29,8 @@ build(){ N=$1; M=$2; S=$3; T=$4; ID=$5
   case $T in
     srain) python3 gen_rain.py $M $S /tmp/a.wav; stock $ID srain;;
     spomo) python3 gen_pomo.py $M $S /tmp/a.wav; stock $ID spomo;;
+    lake) python3 gen_rain2.py $M $S /tmp/a.wav; stock $ID slake;;
+    fire) python3 gen_fire.py $M $S /tmp/a.wav; stock $ID sfire;;
     sbrown) python3 gen_brown.py $M $S /tmp/a.wav; stock $ID sfire;;
     rain) python3 gen_rain.py $M $S /tmp/a.wav; VFPS=12 VCRF=30 VMAX=70k python3 gen_visual_rain.py 60 /tmp/loop.mp4;;
     brown) python3 gen_brown.py $M $S /tmp/a.wav; VFPS=12 VCRF=30 VMAX=50k python3 gen_visual_noise.py 60 /tmp/loop.mp4;;
