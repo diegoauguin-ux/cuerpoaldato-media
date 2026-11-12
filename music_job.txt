@@ -1,2 +1,2 @@
 batch 0 0 x
-campo_01 60 72 meadow 37301242
+fuego_03 60 31 fire3 6232461

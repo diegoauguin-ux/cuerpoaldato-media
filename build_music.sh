@@ -33,6 +33,7 @@ build(){ N=$1; M=$2; S=$3; T=$4; ID=$5
     lake) python3 gen_rain2.py $M $S /tmp/a.wav; stock $ID slake;;
     fire) python3 gen_fire.py $M $S /tmp/a.wav; stock $ID sfire;;
     fire2) export VW=1920 VH=1080 VR=1100k VB=2200k VCRF=21 AB=128k; python3 gen_fire2.py $M $S /tmp/a.wav; stock $ID sfire;;
+    fire3) export VW=1920 VH=1080 VR=1300k VB=2600k VCRF=21 AB=128k; python3 gen_fire3.py $M $S /tmp/a.wav; stock $ID sfire;;
     meadow) export VW=1920 VH=1080 VR=1500k VB=3000k VCRF=21 AB=128k; python3 gen_meadow.py $M $S /tmp/a.wav; stock $ID smeadow;;
     sbrown) python3 gen_brown.py $M $S /tmp/a.wav; stock $ID sfire;;
     rain) python3 gen_rain.py $M $S /tmp/a.wav; VFPS=12 VCRF=30 VMAX=70k python3 gen_visual_rain.py 60 /tmp/loop.mp4;;
