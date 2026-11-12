@@ -36,6 +36,8 @@ build(){ N=$1; M=$2; S=$3; T=$4; ID=$5
     fire3) export VW=1920 VH=1080 VR=1300k VB=2600k VCRF=21 AB=128k; python3 gen_fire3.py $M $S /tmp/a.wav; stock $ID sfire;;
     meadow) export VW=1920 VH=1080 VR=1500k VB=3000k VCRF=21 AB=128k; python3 gen_meadow.py $M $S /tmp/a.wav; stock $ID smeadow;;
     meadow2) export VW=1920 VH=1080 VR=1500k VB=3000k VCRF=21 AB=128k; python3 gen_meadow2.py $M $S /tmp/a.wav; stock $ID smeadow;;
+    study50) export VW=1920 VH=1080 VR=1100k VB=2200k VCRF=21 AB=128k POMO_FOCUS=3000 POMO_CYCLE=3600; FOC=3000; CYC=3600; python3 gen_pomo.py $M $S /tmp/a.wav; stock $ID spomo;;
+    focus) export VW=1920 VH=1080 VR=1100k VB=2200k VCRF=21 AB=128k POMO_FOCUS=999999 POMO_CYCLE=999999; python3 gen_pomo.py $M $S /tmp/a.wav; stock $ID spomo;;
     sbrown) python3 gen_brown.py $M $S /tmp/a.wav; stock $ID sfire;;
     rain) python3 gen_rain.py $M $S /tmp/a.wav; VFPS=12 VCRF=30 VMAX=70k python3 gen_visual_rain.py 60 /tmp/loop.mp4;;
     brown) python3 gen_brown.py $M $S /tmp/a.wav; VFPS=12 VCRF=30 VMAX=50k python3 gen_visual_noise.py 60 /tmp/loop.mp4;;
@@ -44,7 +46,7 @@ build(){ N=$1; M=$2; S=$3; T=$4; ID=$5
   esac
   ffmpeg -nostdin -y -loglevel error -i /tmp/a.wav -c:a aac -b:a ${AB:-80k} /tmp/a.m4a
   LD=$(ffprobe -v error -show_entries format=duration -of csv=p=0 /tmp/loop.mp4); LOOPS=$(python3 -c "import math;print(int(math.ceil($M*60/float('$LD')))+1)")
-  case $T in pomo|spomo) ISP=1;; *) ISP=0;; esac
+  case $T in pomo|spomo|study50) ISP=1;; *) ISP=0;; esac
   if [ $ISP = 1 ]; then
     FONT=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
     R="ceil($FOC-mod(t\,$CYC))"; B="ceil($CYC-mod(t\,$CYC))"
