@@ -1,4 +1,4 @@
 batch 0 0 x
-valpo_01 60 31 srain 36835768
-estudio_02 60 32 spomo 39425782
-chimenea_01 60 33 sbrown 11751758
+valpo_01 60 41 srain 36835768
+estudio_02 60 42 spomo 39425782
+chimenea_01 60 43 sbrown 11751758
