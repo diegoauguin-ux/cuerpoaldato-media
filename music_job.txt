@@ -1,4 +1,3 @@
 batch 0 0 x
-lluvia_01 60 21 rain
 pomo_01 60 22 pomo
 marron_01 60 23 brown
