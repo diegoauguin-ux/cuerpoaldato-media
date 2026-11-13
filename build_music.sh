@@ -38,6 +38,8 @@ build(){ N=$1; M=$2; S=$3; T=$4; ID=$5
     meadow2) export VW=1920 VH=1080 VR=1500k VB=3000k VCRF=21 AB=128k; python3 gen_meadow2.py $M $S /tmp/a.wav; stock $ID smeadow;;
     study50) export VW=1920 VH=1080 VR=1100k VB=2200k VCRF=21 AB=128k POMO_FOCUS=3000 POMO_CYCLE=3600; FOC=3000; CYC=3600; python3 gen_pomo.py $M $S /tmp/a.wav; stock $ID spomo;;
     focus) export VW=1920 VH=1080 VR=1100k VB=2200k VCRF=21 AB=128k POMO_FOCUS=999999 POMO_CYCLE=999999; python3 gen_pomo.py $M $S /tmp/a.wav; stock $ID spomo;;
+    lakeHD) export VW=1920 VH=1080 VR=1300k VB=2600k VCRF=21 AB=128k; python3 gen_rain2.py $M $S /tmp/a.wav; stock $ID slake;;
+    brownHD) export VW=1920 VH=1080 VR=1100k VB=2200k VCRF=21 AB=128k; python3 gen_brown.py $M $S /tmp/a.wav; stock $ID sfire;;
     sbrown) python3 gen_brown.py $M $S /tmp/a.wav; stock $ID sfire;;
     rain) python3 gen_rain.py $M $S /tmp/a.wav; VFPS=12 VCRF=30 VMAX=70k python3 gen_visual_rain.py 60 /tmp/loop.mp4;;
     brown) python3 gen_brown.py $M $S /tmp/a.wav; VFPS=12 VCRF=30 VMAX=50k python3 gen_visual_noise.py 60 /tmp/loop.mp4;;
